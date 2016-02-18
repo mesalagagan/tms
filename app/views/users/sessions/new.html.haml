@@ -1,17 +1,42 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "users/shared/links"
+= content_for :title, 'Sign in'
+.top-title-wrapper
+  .container.p-t-50
+    .row
+      .col-md-4.col-sm-4.col-xs-12
+      .col-md-4.col-sm-4.col-xs-12
+        .page-info
+          %h4.h3-page-title.text-center
+            Login Here
+          %h2.h2-page-desc
+      .col-md-4.col-sm-4.col-xs-12
+.container
+  .row
+    .col-md-4.col-sm-2.col-xs-12
+    .col-md-4.col-sm-8.col-xs-12
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = devise_error_messages!
+        .list-group
+          .list-group-item
+            = f.text_field :email, class: 'form-control no-border', required: true, placeholder: 'Email'
+          .list-group-item
+            = f.password_field :password, class: 'form-control no-border', required: true, autocomplete: "off", placeholder: 'Password'
+        .checkbox
+          %label
+            = f.check_box :remember_me, :as => :boolean if devise_mapping.rememberable?
+            %small Stay signed in
+        = f.submit "Sign in", {class: 'btn btn-lg btn-primary btn-block '}
+        .line.line-dashed.m-b-none
+        %p
+        %p.text-muted.text-center
+          = render "users/shared/links"
+          %p
+          %p.text-muted.text-center
+            %small Do not have an account?
+        %a.btn.btn-lg.btn-default.btn-block{href: "/users/sign_up"} Create an account
+      .text-center.padder
+        %p
+          %small
+            \© 2016
+            -#%br>/%a.btn.btn-lg.btn-default.btn-block
+            Gagan
+    .col-md-4.col-sm-2.col-xs-12

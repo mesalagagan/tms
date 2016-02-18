@@ -1,21 +1,41 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "users/shared/links"
+= content_for :title, 'Sign up'
+.top-title-wrapper
+  .container.p-t-50
+    .row
+      .col-md-4.col-sm-2.col-xs-12
+      .col-md-4.col-sm-8.col-xs-12
+        .page-info
+          %h4.h3-page-title.text-center Register Here
+          %h2.h2-page-desc
+      .col-md-4.col-sm-2.col-xs-12
+.container
+  .row
+    .col-md-4.col-sm-2.col-xs-12
+    .col-md-4.col-sm-8.col-xs-12
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .list-group
+          .list-group-item
+            = f.text_field :name, class: 'form-control no-border', required: true,  placeholder: 'Name'
+          .list-group-item
+            = f.text_field :email, class: 'form-control no-border ', required: true,  placeholder: 'Email'
+          .list-group-item
+            = f.password_field :password, class: 'form-control no-border', required: true, autocomplete: "off",  placeholder: 'Password'
+          .list-group-item
+            = f.date_field :dob, class: 'form-control no-border', 'data-required' => 'true'
+          .list-group-item
+            = f.text_field :company_name, class: 'form-control no-border', 'data-required' => 'true',  placeholder: 'Company Name'
+          .list-group-item
+            = f.file_field :avatar, class: 'form-control no-border', 'data-required' => 'true'
+        = f.submit "Sign up", {class: 'btn btn-primary btn-lg btn-block'}
+        %p
+        %p.text-muted.text-center
+          %small Already have an account?
+        %a.btn.btn-lg.btn-default.btn-block{href: "/users/sign_in"} Sign in
+      .text-center.padder
+        %p
+          %small
+            \© 2015
+            -#%br>/
+            Gagan
+    .col-md-4.col-sm-2.col-xs-12

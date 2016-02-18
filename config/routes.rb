@@ -10,4 +10,6 @@ Rails.application.routes.draw do
                      sessions: 'users/sessions',
                  }
 
+  get 'dashboard' => 'dashboard#show'
+
 end

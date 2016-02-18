@@ -1,1 +1,17 @@
 = content_for :title, 'Dashboard'
+
+%div.p-t-50
+  .p-t-50
+    - @projects.each do |project|
+      .col-md-3.col-sm-6.col-xs-12
+        %a{:href => user_project_path(current_user.id, project.id)}
+          %h4
+            = project.name
+          %img.img-thumbnail{:alt => "Project Image", :src => asset_path(project.project_image), style: "height: 200px !important" }
+        %br
+        %br
+        - if project.is_admin(current_user.id, project.id)
+          .col-md-6.col-sm-6.col-xs-6
+            %a{:href => edit_user_project_path(current_user.id, project.id), class: 'btn btn-info'} Edit
+          .col-md-6.col-sm-6.col-xs-6
+            %a{:href => user_project_path(current_user.id, project.id), class: 'btn btn-danger', "data-method" => "delete"} Delete

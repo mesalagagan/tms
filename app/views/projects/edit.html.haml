@@ -1,0 +1,24 @@
+= content_for :title, 'Sign up'
+.top-title-wrapper
+  .container.p-t-50
+    .row
+      .col-md-4.col-sm-2.col-xs-12
+      .col-md-4.col-sm-8.col-xs-12
+        .page-info
+          %h4.h3-page-title.text-center Update Project
+          %h2.h2-page-desc
+      .col-md-4.col-sm-2.col-xs-12
+.container
+  .row
+    .col-md-4.col-sm-2.col-xs-12
+    .col-md-4.col-sm-8.col-xs-12
+      = form_for @project, url: user_project_path(current_user.id, @project.id), method: :put  do |f|
+        .list-group
+          .list-group-item
+            = f.text_field :name, class: 'form-control no-border', required: true,  placeholder: 'Name'
+          .list-group-item
+            = f.date_field :submission_date, class: 'form-control no-border ', required: true,  placeholder: 'Submission Date'
+          .list-group-item
+            = f.file_field :project_image, class: 'form-control no-border', 'data-required' => 'true'
+        = f.submit "Update Project", {class: 'btn btn-primary btn-lg btn-block'}
+    .col-md-4.col-sm-2.col-xs-12

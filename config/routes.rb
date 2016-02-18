@@ -12,4 +12,8 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#show'
 
+  resources :users do
+    resources :projects
+  end
+
 end

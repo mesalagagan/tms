@@ -10,11 +10,11 @@
   %body
     .container
       = render :partial => '/layouts/home/header'
-      -#.flash.bg-success
-      -#  - flash.each do |type, message|
-      -#    %div{:class => " alert alert-#{type}"}
-      -#      %span= message
-      -#      %span.pull-right.x{style: "cursor:pointer; padding-right: 20px"} X
+      .flash.bg-success
+        - flash.each do |type, message|
+          %div{:class => " alert alert-#{type}"}
+            %span= message
+            %span.pull-right.x{style: "cursor:pointer; padding-right: 20px"} X
       #main-wrap.main-color
         = yield
     = render :partial => '/layouts/home/footer'

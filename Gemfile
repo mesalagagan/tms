@@ -13,6 +13,9 @@ gem 'pg'
 # Haml Templating Language
 gem 'haml-rails'
 
+# Authentication
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,6 +42,12 @@ group :development do
   gem 'rails_best_practices'
   gem 'dotenv'
 end
+
+group :development, :test do
+  gem 'debugger'
+  gem 'rspec-rails'
+end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

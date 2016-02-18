@@ -17,8 +17,8 @@ gem 'haml-rails'
 gem 'devise'
 
 # Images - Assets
+gem 'remotipart', '~> 1.2.1'
 gem 'carrierwave'
-gem 'carrierwave_direct'
 gem 'fog'
 
 # Use SCSS for stylesheets

@@ -1,10 +1,21 @@
-!!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Tms
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %title
+      = "TMS :: #{yield(:title)}"
+    = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans", :rel => "stylesheet", :type => "text/css"}/
   %body
-    = yield
+    .container
+      = render :partial => '/layouts/home/header'
+      -#.flash.bg-success
+      -#  - flash.each do |type, message|
+      -#    %div{:class => " alert alert-#{type}"}
+      -#      %span= message
+      -#      %span.pull-right.x{style: "cursor:pointer; padding-right: 20px"} X
+      #main-wrap.main-color
+        = yield
+    = render :partial => '/layouts/home/footer'
+    = javascript_include_tag 'application'

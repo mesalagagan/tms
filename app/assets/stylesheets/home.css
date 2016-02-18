@@ -1,0 +1,59 @@
+/**
+ *=require font-awesome.min
+ *=require bootstrap.min
+ *=require common
+ *= require_self
+ */
+
+.form-control {
+  border: none;
+  transition: none;
+  box-shadow: none;
+}
+
+.list-group-item {
+  border-color: #eaeef1
+}
+
+.list-group-item:first-child {
+  border-radius: 2px !important;
+}
+
+.list-group-item:last-child {
+  border-radius: 2px !important;
+}
+
+input[type=radio], input[type=checkbox] {
+  margin: 2px 0 0;
+}
+
+input:focus {
+  border: 1px dotted #cccccc;
+}
+
+a {
+  text-decoration: none;
+  color: #404040
+}
+
+a:hover {
+  text-decoration: none;
+  color: #404040;
+}
+
+.btn-default {
+  color: #788288 !important;
+}
+
+.btn-lg, .btn-group-lg>.btn {
+  border-radius: 2px !important;
+}
+
+label.error {
+    color: red;
+    font-size: 12px;
+}
+
+input.error {
+    border: 1px dotted red;
+}

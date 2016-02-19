@@ -22,5 +22,4 @@ Rails.application.routes.draw do
     put 'invitation/:id', action: :invitation
     resources :tasks
   end
-
 end

@@ -1,2 +1,37 @@
 = content_for :title, 'Project'
 
+%div
+  .p-t-50
+    .row
+      .col-md-3.col-sm-3.col-xs-3
+      .col-md-8.col-sm-8.col-xs-8
+        %a.pull-right{:href =>  new_project_task_path(@project.id), class: "btn btn-info"} Create Task
+  .p-t-50
+    .row
+      .col-md-1.col-sm-1.col-xs-1
+      .col-md-10.col-sm-10.col-xs-10
+        %h3 Tasks
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th Title
+              %th Due Date
+              %th Description
+              %th Edit
+              %th Delete
+          %tbody
+            - @tasks.each do |task|
+              %tr
+                %td
+                  = task.title
+                %td
+                  = task.due_date
+                %td
+                  = task.description
+                %td
+                  %a{:href => edit_project_task_path(task.project.id, task.id), class: 'btn btn-info'}
+                    Edit
+                %td
+                  %a{:href => project_task_path(task.project.id, task.id), class: 'btn btn-danger', 'data-method' => 'delete'}
+                    Delete
+      .col-md-1.col-sm-1.col-xs-1

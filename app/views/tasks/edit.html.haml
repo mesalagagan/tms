@@ -1,0 +1,24 @@
+= content_for :title, 'Task::Edit'
+.top-title-wrapper
+  .container.p-t-50
+    .row
+      .col-md-4.col-sm-2.col-xs-12
+      .col-md-4.col-sm-8.col-xs-12
+        .page-info
+          %h4.h3-page-title.text-center Update Task
+          %h2.h2-page-desc
+      .col-md-4.col-sm-2.col-xs-12
+.container
+  .row
+    .col-md-4.col-sm-2.col-xs-12
+    .col-md-4.col-sm-8.col-xs-12
+      = form_for @task, url: project_task_path(@task.project.id, @task.id), method: :put  do |f|
+        .list-group
+          .list-group-item
+            = f.text_field :title, class: 'form-control no-border', required: true,  placeholder: 'Title'
+          .list-group-item
+            = f.text_area :description, class: 'form-control no-border', required: true,  placeholder: 'Description'
+          .list-group-item
+            = f.date_field :due_date, class: 'form-control no-border ', required: true,  placeholder: 'Due Date'
+        = f.submit "Update Task", {class: 'btn btn-primary btn-lg btn-block'}
+    .col-md-4.col-sm-2.col-xs-12

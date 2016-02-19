@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
-  has_many :collaborations, dependent: :destroy
+  has_many :collaborations, dependent: :delete_all
   has_many :users, through: :collaborations
-  has_many :tasks, dependent: :destroy
+  has_many :tasks, dependent: :delete_all
 
   mount_uploader :project_image, ProjectImageUploader
 

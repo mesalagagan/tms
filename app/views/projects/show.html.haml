@@ -37,7 +37,7 @@
                     %p No
                 %td
                   - if Project.is_admin(current_user.id, @project.id)
-                    %a{:href => project_task_path(task.project.id, task.id), class: 'btn btn-danger', 'data-method' => 'delete',data: { confirm: 'Are you sure?' }}
+                    %a{:href => project_task_path(task.project.id, task.id), class: 'btn btn-danger', 'data-method' => 'delete'}
                       Delete
                   - else
                     %p No

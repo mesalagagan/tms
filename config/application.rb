@@ -28,6 +28,7 @@ module Tms
     # config.i18n.default_locale = :de
     config.assets.enabled = true
     config.sass.preferred_syntax = :sass
+    config.exceptions_app = self.routes
 
     config.generators do |g|
       g.test_framework :rspec

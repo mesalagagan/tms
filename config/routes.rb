@@ -11,6 +11,7 @@ Rails.application.routes.draw do
                  }
 
   get 'dashboard' => 'dashboard#show'
+  match '/404', to: 'errors#not_found', via: :all
 
   resources :users do
     resources :projects

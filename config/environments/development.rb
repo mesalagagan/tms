@@ -29,6 +29,9 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
@@ -46,7 +49,7 @@ Rails.application.configure do
       :domain               => 'gmail.com',
       :user_name            => 'emstestapp@gmail.com',
       :password             => 'testtest1',
-      :authentication       => 'login',
+      :authentication       => 'plain',
       :enable_starttls_auto => true
   }
 

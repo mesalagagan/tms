@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
     if @user
       if !Collaboration.find_by(user_id: @user.id, project_id: @project.id)
         @collaboration = Collaboration.create(project_id: @project.id, user_id: @user.id, role: 'Member', isaccessible: false)
-        InviteProjectMailer.invite_member(@user, @project, @collaboration, current_user).deliver!
+        InviteProjectMailer.invite_member(@user, @project, current_user).deliver!
         redirect_to dashboard_path, notice: 'Invitation sent successfully'
       else
         redirect_to dashboard_path, notice: 'This member has already access to project'

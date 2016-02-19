@@ -1,0 +1,39 @@
+= content_for :title, 'Project::Invite'
+.top-title-wrapper
+  .container.p-t-50
+    .row
+      .col-md-4.col-sm-2.col-xs-12
+      .col-md-4.col-sm-8.col-xs-12
+        .page-info
+          %h4.h3-page-title.text-center Add Collaborator
+          %h2.h2-page-desc
+      .col-md-4.col-sm-2.col-xs-12
+.container
+  .row
+    .col-md-4.col-sm-2.col-xs-12
+    .col-md-4.col-sm-8.col-xs-12
+      = form_for @user, url: project_invited_path, method: :post do |user|
+        .list-group
+          .list-group-item
+            = user.select :email, @users.all.collect(&:email), {include_blank: 'Select Email'},{class: 'form-control', required: true}
+        = user.submit "Invite Collaborator", {class: 'btn btn-primary btn-lg btn-block'}
+    .col-md-4.col-sm-2.col-xs-12
+
+.p-t-50
+  .row
+    .col-md-1.col-sm-1.col-xs-1
+    .col-md-10.col-sm-10.col-xs-10
+      %h4 Collaborators
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th Email
+            %th Role
+        %tbody
+          - @collaborators.each do |c|
+            %tr
+              %td
+                = c.email
+              %td
+                = Collaboration.find_by(user_id: c.id, project_id: @project_id).role
+    .col-md-1.col-sm-1.col-xs-1

@@ -34,20 +34,19 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.app_domain = 'http://localhost:3000'
+  # config.app_domain = 'localhost:5000'
 
-  config.action_mailer.default_url_options = { host: config.app_domain}
+  # config.action_mailer.default_url_options = { host: config.app_domain}
 
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-      :address              => 'smtp.gmail.com',
+      :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'gmail.com',
+      :domain               => '',
       :user_name            => 'emstestapp@gmail.com',
       :password             => 'testtest1',
-      :authentication       => 'login',
-      :enable_starttls_auto => true
+      :authentication       => 'plain',
   }
 
 

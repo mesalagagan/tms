@@ -11,13 +11,15 @@ Rails.application.routes.draw do
                  }
 
   get 'dashboard' => 'dashboard#show'
-  match '/404', to: 'errors#not_found', via: :all
 
   resources :users do
     resources :projects
   end
 
   resources :projects do
+    get 'invite'
+    post 'invited'
+    put 'invitation/:id', action: :invitation
     resources :tasks
   end
 

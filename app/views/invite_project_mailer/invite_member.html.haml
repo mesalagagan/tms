@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-md-4
+    .col-md-4
+      %h3
+        Hi #{@user.name}
+      %p
+        This is #{@admin.name}, Invitation to the project.
+      %p
+        click the below link.
+      %p
+        = @url
+      %span
+        Thanks,
+      %p
+        #{@admin.name}
+    .col-md-4

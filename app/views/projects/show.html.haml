@@ -5,7 +5,8 @@
     .row
       .col-md-3.col-sm-3.col-xs-3
       .col-md-8.col-sm-8.col-xs-8
-        %a.pull-right{:href =>  new_project_task_path(@project.id), class: "btn btn-info"} Create Task
+        - if Project.is_admin(current_user.id, @project.id)
+          %a.pull-right{:href =>  new_project_task_path(@project.id), class: "btn btn-info"} Create Task
   .p-t-50
     .row
       .col-md-1.col-sm-1.col-xs-1
@@ -29,9 +30,15 @@
                 %td
                   = task.description
                 %td
-                  %a{:href => edit_project_task_path(task.project.id, task.id), class: 'btn btn-info'}
-                    Edit
+                  - if Project.is_admin(current_user.id, @project.id)
+                    %a{:href => edit_project_task_path(task.project.id, task.id), class: 'btn btn-info'}
+                      Edit
+                  - else
+                    %p No
                 %td
-                  %a{:href => project_task_path(task.project.id, task.id), class: 'btn btn-danger', 'data-method' => 'delete'}
-                    Delete
+                  - if Project.is_admin(current_user.id, @project.id)
+                    %a{:href => project_task_path(task.project.id, task.id), class: 'btn btn-danger', 'data-method' => 'delete',data: { confirm: 'Are you sure?' }}
+                      Delete
+                  - else
+                    %p No
       .col-md-1.col-sm-1.col-xs-1

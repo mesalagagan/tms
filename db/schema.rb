@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219021821) do
+ActiveRecord::Schema.define(version: 20160219071904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160219021821) do
     t.integer  "project_id"
     t.integer  "user_id"
     t.string   "role"
+    t.boolean  "isaccessible"
   end
 
   add_index "collaborations", ["project_id"], name: "index_collaborations_on_project_id", using: :btree

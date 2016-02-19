@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160219071904) do
     t.integer  "project_id"
     t.integer  "user_id"
     t.string   "role"
-    t.boolean  "isaccessible"
+    t.boolean  "isaccessible", default: false
   end
 
   add_index "collaborations", ["project_id"], name: "index_collaborations_on_project_id", using: :btree

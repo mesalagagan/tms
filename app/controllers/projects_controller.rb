@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.collaborations.build(:user_id => current_user.id, project_id: @project.id, :role => 'Admin')
+    @project.collaborations.build(:user_id => current_user.id, project_id: @project.id, :role => 'Admin', :isaccessible => true)
     if @project.save
       redirect_to dashboard_path, notice: 'Project created successfully'
     end

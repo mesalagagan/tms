@@ -18,6 +18,8 @@
       - else
         %ul.nav.navbar-nav.navbar-right.ems.p-r-15
           %li
+            = link_to "Welcome #{current_user.name}", "#", style: 'cursor:none'
+          %li
             = link_to 'Create Project', new_user_project_path(current_user.id)
           %li
             = link_to 'Dashboard', dashboard_path

@@ -55,7 +55,6 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = "http://stagingassets.ekincare.com"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -85,14 +84,15 @@ Rails.application.configure do
 
   config.app_domain = 'http://tmsstaging.herokuapp.com'
 
+  config.action_mailer.default_url_options = { host: config.app_domain}
+
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'gmail.com',
+      :domain               => 'http://tmsstaging.herokuapp.com',
       :user_name            => 'emstestapp@gmail.com',
       :password             => 'testtest1',
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }
-  config.action_mailer.default_url_options = { host: config.app_domain}
 end

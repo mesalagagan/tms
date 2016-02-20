@@ -1,19 +1,20 @@
 = content_for :title, 'Dashboard'
 
-%div.p-t-50
-  .p-t-50
-    - @projects.each do |project|
-      .col-md-3.col-sm-6.col-xs-12.p-b-50
-        %a{:href => user_project_path(current_user.id, project.id)}
-          %h4
-            = project.name
-          %img.img-thumbnail{:alt => "Project Image", :src => asset_path(project.project_image), style: "height: 200px !important" }
-        %br
-        %br
-        - if Project.is_admin(current_user.id, project.id)
-          .col-md-4.col-sm-4.col-xs-4
-            %a{:href => edit_user_project_path(current_user.id, project.id), class: 'btn btn-info'} Edit
-          .col-md-4.col-sm-4.col-xs-4
-            %a{:href => project_invite_path(project.id), class: 'btn btn-primary'} Invite
-          .col-md-4.col-sm-4.col-xs-4
-            %a{:href => user_project_path(current_user.id, project.id), class: 'btn btn-danger', "data-method" => "delete"} Delete
+%div.p-t-100
+  - @projects.each do |project|
+    .col-md-3.col-sm-6.col-xs-12.p-b-50
+      %a{:href => user_project_path(current_user.id, project.id)}
+        %h4
+          = project.name
+        %span
+          = project.submission_date
+        %img.img-thumbnail{:alt => "Project Image", :src => asset_path(project.project_image), style: "height: 200px !important" }
+      %br
+      %br
+      - if Project.is_admin(current_user.id, project.id)
+        .col-md-4.col-sm-4.col-xs-4
+          %a{:href => edit_user_project_path(current_user.id, project.id), class: 'btn btn-info'} Edit
+        .col-md-4.col-sm-4.col-xs-4
+          %a{:href => project_invite_path(project.id), class: 'btn btn-primary'} Invite
+        .col-md-4.col-sm-4.col-xs-4
+          %a{:href => user_project_path(current_user.id, project.id), class: 'btn btn-danger', "data-method" => "delete"} Delete

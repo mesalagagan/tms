@@ -10,7 +10,7 @@
   %body
     .container
       = render :partial => '/layouts/home/header'
-      .flash.bg-success
+      .flash.bg-success{style: 'width: 1140px !important'}
         - flash.each do |type, message|
           %div{:class => " alert alert-#{type}"}
             %span= message

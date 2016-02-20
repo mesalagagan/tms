@@ -1,123 +1,131 @@
 /*Header text - color*/
 b {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 a.navbar-brand.ems {
-  color: #fff;
+    color: #fff;
 }
 
 .navbar {
-  border: none;
-  margin-bottom: 0px;
+    border: none;
+    margin-bottom: 0px;
 }
 
 footer {
-  overflow: hidden;
-  position: relative;
-  z-index: 0;
-  padding: 0 0 0 0;
-  background-color: #383838;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    padding: 0 0 0 0;
+    background-color: #383838;
 }
 
-.color{
-  color: #fff
+.color {
+    color: #fff
 }
 
 .height {
-  line-height: 45px;
+    line-height: 45px;
 }
 
-#main-wrap{
-  min-height: 1200px;
+#main-wrap {
+    min-height: 1200px;
 }
+
 #main-wrap.main-color {
-  background-color: #e9f0f9;
+    background-color: #e9f0f9;
 }
-
 
 /*Padding*/
 .p-t {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 .p-t-20 {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 .p-t-40 {
-  padding-top: 40px;
+    padding-top: 40px;
 }
 
 .p-t-50 {
-  padding-top: 50px;
+    padding-top: 50px;
 }
 
+.p-t-100 {
+    padding-top: 100px;
+}
+
+
 .p-r {
-  padding-right: 10px;
+    padding-right: 10px;
 }
 
 .p-r-20 {
-  padding-right: 20px;
+    padding-right: 20px;
 }
 
 .p-r-15 {
-  padding-right: 15px;
+    padding-right: 15px;
 }
 
 .p-r-50 {
-  padding-right: 50px;
+    padding-right: 50px;
 }
 
 .p-l-70 {
-  padding-left: 70px;
+    padding-left: 70px;
 }
 
 .p-l-60 {
-  padding-left: 60px;
+    padding-left: 60px;
 }
 
 .p-l-50 {
-  padding-left: 50px;
+    padding-left: 50px;
 }
 
 .p-l-40 {
-  padding-left: 40px;
+    padding-left: 40px;
 }
 
 .p-l {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 .p-b-50 {
-  padding-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 .m-t {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .m-r {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .m-b {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
 .m-l {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .flash {
-  text-align: center;
-  margin-top: 50px;
+    position: absolute;
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
 }
 
 .alert {
-  border: none;
-  margin-bottom: 0px;
+    border: none;
+    margin-bottom: 0px;
 }
 
-.navbar-inverse .navbar-nav>li>a {
-  color: #fff
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff
 }

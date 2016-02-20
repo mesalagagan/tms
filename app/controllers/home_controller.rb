@@ -5,5 +5,4 @@ class HomeController < ApplicationController
       redirect_to dashboard_path
     end
   end
-
 end

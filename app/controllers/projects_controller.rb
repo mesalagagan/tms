@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.collaborations.build(:user_id => current_user.id, project_id: @project.id, :role => 'Admin', :isaccessible => true)
+
     if @project.save
       redirect_to dashboard_path, notice: 'Project created successfully'
     end
@@ -46,7 +47,6 @@ class ProjectsController < ApplicationController
     @user = User.new
     @users = User.all.where.not(email: current_user.email)
     @project_id = params[:project_id]
-    # @collaborations = Collaboration.where(project_id: params[:project_id])
     @collaborations = Collaboration.where(project_id: params[:project_id], isaccessible: true)
     @collaborators = []
     @collaborations.each do |c|
@@ -68,12 +68,13 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def project_params
-    params.require(:project).permit(:name, :project_image, :submission_date)
-  end
-
   def get_project
     @project = Project.find(params[:id])
   end
 
+  protected
+
+  def project_params
+    params.require(:project).permit(:name, :project_image, :submission_date)
+  end
 end

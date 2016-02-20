@@ -87,12 +87,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'tmsstaging.herokuapp.com' }
 
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      :domain               => 'tmsstaging.herokuapp.com',
-      :user_name            => 'emstestapp@gmail.com',
-      :password             => 'testtest1',
-      :authentication       => 'plain',
-      :enable_starttls_auto => true
+      :address => 'smtp.mailgun.org',
+      :port => '587',
+      :authentication => :plain,
+      :user_name => ENV['MAILGUN_USERNAME'],
+      :password => ENV['MAILGUN_PASSWORD'],
+      :domain => 'tmsstaging.herokuapp.com'
   }
+
 end
